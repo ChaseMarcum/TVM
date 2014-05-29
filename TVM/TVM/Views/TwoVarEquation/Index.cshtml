@@ -1,0 +1,31 @@
+﻿@model TVM.Models.TwoVarEquation
+
+@{
+    ViewBag.Title = "Index";
+    TVM.Models.TwoVarEquation myEquation = new TVM.Models.TwoVarEquation();
+    var index = ViewBag.index;
+   if (index == null)
+    {
+       index = 0;
+    }
+}
+<script>
+    function processEquation()
+    {
+        if (document.getElementById("Oper").innerText == "-") {
+            document.getElementById("Result").innerText = "is minus";
+        }
+        else
+        {
+            document.getElementById("Result").innerText = "is division";
+        }
+    }
+</script>
+<h2>@myEquation.equationName[index]</h2>
+
+<p>@myEquation.firstVarName[index]</p>
+<p id="Oper">@myEquation.equationOperator[index]</p>
+<p>@myEquation.secondVarName[index]</p>
+<p id="Result">this is where my result will be</p>
+<button name="Process" onclick="processEquation()"></button>
+
