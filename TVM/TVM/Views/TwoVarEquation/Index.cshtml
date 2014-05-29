@@ -1,0 +1,82 @@
+﻿@model TVM.Models.TwoVarEquation
+
+@{
+    ViewBag.Title = "Index";
+    TVM.Models.TwoVarEquation myEquation = new TVM.Models.TwoVarEquation();
+    var index = ViewBag.index;
+   if (index == null)
+    {
+       index = 0;
+    }
+}
+<script>
+    function processEquation()
+    {
+        var firstVar = document.getElementById("firstVar").value;
+        var secondVar = document.getElementById("secondVar").value;
+        if (document.getElementById("Oper").innerText == "-") {
+            document.getElementById("Result").innerText = firstVar-secondVar;
+        }
+        else if(document.getElementById("Oper").innerText == "/")
+        {
+            document.getElementById("Result").innerText = firstVar/secondVar;
+        }
+        else if (document.getElementById("Oper").innerText == "*")
+        {
+            document.getElementById("Result").innerText = firstVar*secondVar;
+        }
+        else if (document.getElementById("Oper").innerText == "+")
+        {
+            document.getElementById("Result").innerText = firstVar+secondVar;
+        }
+        else
+        {
+            document.getElementById("Result").innerText = "no operator found";
+        }
+    }
+</script>
+<h2>@myEquation.equationName[index]</h2>
+<br/>
+<h1>@myEquation.description[index]</h1>
+<table>
+    <tr>
+        <td width="20%" align="center">
+            @myEquation.firstVarName[index]
+        </td>
+        <td width="20%" align="center">
+            @myEquation.equationOperator[index]
+        </td>
+        <td width="20%" align="center">
+            @myEquation.secondVarName[index]
+        </td>
+        <td width="20%" align="center">
+            =
+        </td>
+        <td width="20%" align="center">
+            Result
+        </td>
+    </tr>
+    <tr>
+        <td width="20%" align="center">
+            <input id="firstVar" type="number" />
+        </td>
+        <td width="20%" align="center">
+            <p id="Oper">@myEquation.equationOperator[index]</p>
+        </td>
+        <td width="20%" align="center">
+            <input id="secondVar" type="number" />
+        </td>
+        <td width="20%" align="center">
+            =
+        </td>
+        <td width="20%" align="center">
+            <p id="Result">myResult</p>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<button name="Process" onclick="processEquation()">Process</button>
+
