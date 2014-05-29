@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    @{var myEquation = new TVM.Models.TwoVarEquation();}
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("Engineering Economics", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,15 +26,33 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" id="wrapper">
+
+        <!-- --------------------  Sidebar  -------------------- -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    @{
+                        int a = 0;
+                        foreach (var equation in myEquation.equationName)
+                        {
+                            @Html.ActionLink(equation, "Index", "TwoVarEquation", new { index = a }, null)
+                            <br />
+                            a++;
+                        }
+                    }
+                </li>
+            </ul>
+        </div>
+
+        <!-- --------------------  Page content  -------------------- -->
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Chase Marcum and John Price</p>
         </footer>
     </div>
 
