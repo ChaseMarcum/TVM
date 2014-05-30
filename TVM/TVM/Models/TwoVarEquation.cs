@@ -35,7 +35,7 @@ namespace TVM.Models
                                          "Sales Per Share",
                                          "Price to Sales Ratio"};
 
-
+        #region
         public string[] description = {"This is the description for the Cash Flow to Creditors Equation",
                                        "This is the description for the Dividends Per Share Equation",
                                        "This is the description for the Net Income Two Var Equation",
@@ -58,7 +58,8 @@ namespace TVM.Models
                                        "This is the description for the Earnings Per Share Equation",
                                        "This is the description for the Sales Per Share Equation",
                                        "This is the description for the Price to Sales Ratio Equation"};
-
+        #endregion
+        #region
         public string[] firstVarName = {"Interest Paid",
                                         "Total Dividends",
                                         "Dividends",
@@ -81,7 +82,7 @@ namespace TVM.Models
                                         "Net Income",
                                         "Total Sales",
                                         "Share Price"};
-
+        
         public string[] secondVarName = {"Net New Borrowing",
                                          "Shares Outstanding",
                                          "Addition to Retained Earnings",
@@ -104,7 +105,8 @@ namespace TVM.Models
                                          "Shares Outstanding",
                                          "Shares Outstanding",
                                          "Sales Per Share"};
- 
+        #endregion
+        #region
         public string[] equationOperator = {"-",
                                             "/",
                                             "+",
@@ -127,6 +129,30 @@ namespace TVM.Models
                                             "/",
                                             "/",
                                             "/"};
+        #endregion
+        public string[] resultType = {"Dollar",
+                                      "Dollar",
+                                      "Dollar",
+                                      "Dollar",
+                                      "Ratio",
+                                      "Dollar",
+                                      "Dollar",
+                                      "Percent",
+                                      "Dollar",
+                                      "Dollar",
+                                      "Dollar",
+                                      "Ratio",
+                                      "Percent",
+                                      "Percent",
+                                      "Ratio",
+                                      "Days",
+                                      "Ratio",
+                                      "Days",
+                                      "Ratio",
+                                      "Dollar",
+                                      "Dollar",
+                                      "Ratio"
+                                     };
         public double firstVariable { get; set; }
         public double secondVariable{ get; set; }
         public double result { get; set; }
