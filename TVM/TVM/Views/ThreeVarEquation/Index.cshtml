@@ -130,22 +130,22 @@
         }
 
         if (document.getElementById("Oper2").innerText == "-") {
-            returnValue = (returnValue - secondVar) * normalize;
+            returnValue = (returnValue - thirdVar) * normalize;
             returnValue = returnValue.toFixed(2);
             document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else if (document.getElementById("Oper2").innerText == "/") {
-            returnValue = (returnValue / secondVar) * normalize;
+            returnValue = (returnValue / thirdVar) * normalize;
             returnValue = returnValue.toFixed(2);
             document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else if (document.getElementById("Oper2").innerText == "*") {
-            returnValue = (returnValue * secondVar) * normalize;
+            returnValue = (returnValue * thirdVar) * normalize;
             returnValue = returnValue.toFixed(2);
             document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else if (document.getElementById("Oper2").innerText == "+") {
-            returnValue = (returnValue + secondVar);
+            returnValue = (returnValue + thirdVar) * normalize;
             returnValue = returnValue.toFixed(2);
             document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
