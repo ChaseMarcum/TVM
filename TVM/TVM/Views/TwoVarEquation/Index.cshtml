@@ -2,81 +2,88 @@
 
 @{
     ViewBag.Title = "Index";
-    TVM.Models.TwoVarEquation myEquation = new TVM.Models.TwoVarEquation();
-    var index = ViewBag.index;
-   if (index == null)
-    {
-       index = 0;
-    }
+    var myEquation = new TVM.Models.TwoVarEquation();
+    var index = ViewBag.index ?? 0;
 }
+
+<div style="padding: 30px"></div>
+
+<div class="jumbotron">
+
+    <h2>@myEquation.equationName[index]</h2>
+    <br />
+    <h4>@myEquation.description[index]</h4>
+    <br />
+    <div class="form-horizontal" role="form">
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="text-center">
+                    <td>
+                        <h4>
+                            @myEquation.firstVarName[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.equationOperator[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.secondVarName[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>=</h4>
+                    </td>
+                    <td>
+                        <h4>Result</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control "id="firstVar" type="number" />
+                    </td>
+                    <td>
+                        <p id="Oper">@myEquation.equationOperator[index]</p>
+                    </td>
+                    <td>
+                        <input class="form-control" id="secondvar" type="number" />
+                    </td>
+                    <td>
+                        <p>=</p>
+                    </td>
+                    <td>
+                        <p id="Result"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button name="Process" onclick="processEquation()" type="button" class="btn btn-default btn-lg btn-block">Calculate @myEquation.equationName[index]</button>
+</div>
+
 <script>
-    function processEquation()
-    {
+    function processEquation() {
         var firstVar = document.getElementById("firstVar").value;
         var secondVar = document.getElementById("secondVar").value;
         if (document.getElementById("Oper").innerText == "-") {
-            document.getElementById("Result").innerText = firstVar-secondVar;
+            document.getElementById("Result").innerText = firstVar - secondVar;
         }
-        else if(document.getElementById("Oper").innerText == "/")
-        {
-            document.getElementById("Result").innerText = firstVar/secondVar;
+        else if (document.getElementById("Oper").innerText == "/") {
+            document.getElementById("Result").innerText = firstVar / secondVar;
         }
-        else if (document.getElementById("Oper").innerText == "*")
-        {
-            document.getElementById("Result").innerText = firstVar*secondVar;
+        else if (document.getElementById("Oper").innerText == "*") {
+            document.getElementById("Result").innerText = firstVar * secondVar;
         }
-        else if (document.getElementById("Oper").innerText == "+")
-        {
-            document.getElementById("Result").innerText = firstVar+secondVar;
+        else if (document.getElementById("Oper").innerText == "+") {
+            document.getElementById("Result").innerText = firstVar + secondVar;
         }
-        else
-        {
+        else {
             document.getElementById("Result").innerText = "no operator found";
         }
     }
 </script>
-<h2>@myEquation.equationName[index]</h2>
-<br/>
-<h1>@myEquation.description[index]</h1>
-<table>
-    <tr>
-        <td width="20%" align="center">
-            @myEquation.firstVarName[index]
-        </td>
-        <td width="20%" align="center">
-            @myEquation.equationOperator[index]
-        </td>
-        <td width="20%" align="center">
-            @myEquation.secondVarName[index]
-        </td>
-        <td width="20%" align="center">
-            =
-        </td>
-        <td width="20%" align="center">
-            Result
-        </td>
-    </tr>
-    <tr>
-        <td width="20%" align="center">
-            <input id="firstVar" type="number" />
-        </td>
-        <td width="20%" align="center">
-            <p id="Oper">@myEquation.equationOperator[index]</p>
-        </td>
-        <td width="20%" align="center">
-            <input id="secondVar" type="number" />
-        </td>
-        <td width="20%" align="center">
-            =
-        </td>
-        <td width="20%" align="center">
-            <p id="Result">myResult</p>
-        </td>
-    </tr>
-</table>
 
 
-
-
-<button name="Process" onclick="processEquation()">Process</button>
 
