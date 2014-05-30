@@ -7,7 +7,9 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    @{var myEquation = new TVM.Models.TwoVarEquation();}
+    @{var myEquation = new TVM.Models.TwoVarEquation();
+      var myEquation2 = new TVM.Models.ThreeVarEquation();
+     }
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,6 +42,13 @@
                         foreach (var equation in myEquation.equationName)
                         {
                             @Html.ActionLink(equation, "Index", "TwoVarEquation", new { index = a }, null)
+                            <br />
+                            a++;
+                        }
+                        a = 0;
+                        foreach (var equation in myEquation2.equationName)
+                        { 
+                            @Html.ActionLink(equation, "Index", "ThreeVarEquation", new { index = a}, null)
                             <br />
                             a++;
                         }
