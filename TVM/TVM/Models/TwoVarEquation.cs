@@ -35,10 +35,12 @@ namespace TVM.Models
                                          "Sales Per Share",
                                          "Price to Sales Ratio"};
 
+        public int[] chapter = { };
+
         #region
         public string[] description = {"This is the description for the Cash Flow to Creditors Equation",
                                        "This is the description for the Dividends Per Share Equation",
-                                       "This is the description for the Net Income Two Var Equation",
+                                       "This is the description for the Net Income Equation",
                                        "This is the description for the Book Value Per Share Equation",
                                        "This is the description for the Market to Book Ratio Equation",
                                        "This is the description for the Market Value of Assets Equation",
