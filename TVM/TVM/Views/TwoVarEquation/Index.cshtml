@@ -62,22 +62,53 @@
     </div>
     <button name="Process" onclick="processEquation()" type="button" class="btn btn-default btn-lg btn-block">Calculate @myEquation.equationName[index]</button>
 </div>
+<div hidden id="returnType">@myEquation.resultType[index]</div>
 
 <script>
     function processEquation() {
-        var firstVar = document.getElementById("firstVar").value;
-        var secondVar = document.getElementById("secondVar").value;
+        var firstVar = document.getElementById("firstVar").value * 1;
+        var secondVar = document.getElementById("secondVar").value * 1;
+        var returnType = document.getElementById("returnType").innerText;
+        var returnAddOn = "";
+        var normalize = 1;
+        if (returnType == "Percent")
+        {
+            returnAddOn = " Percent";
+            normalize = 100;
+        }
+        else if (returnType == "Ratio")
+        {
+            returnAddOn = " Times";
+        }
+        else if (returnType == "Dollar")
+        {
+            returnAddOn = " Dollars";
+        }
+        else if (returnType == "Days")
+        {
+            returnAddOn = " Days"
+        }
+        
+        var returnValue = 0;
         if (document.getElementById("Oper").innerText == "-") {
-            document.getElementById("Result").innerText = firstVar - secondVar;
+            returnValue = (firstVar - secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else if (document.getElementById("Oper").innerText == "/") {
-            document.getElementById("Result").innerText = firstVar / secondVar;
+            returnValue = (firstVar / secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else if (document.getElementById("Oper").innerText == "*") {
-            document.getElementById("Result").innerText = firstVar * secondVar;
+            returnValue = (firstVar * secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else if (document.getElementById("Oper").innerText == "+") {
-            document.getElementById("Result").innerText = firstVar + secondVar;
+            returnValue = (firstVar + secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
         }
         else {
             document.getElementById("Result").innerText = "no operator found";
