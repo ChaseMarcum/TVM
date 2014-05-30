@@ -1,0 +1,165 @@
+﻿@model TVM.Models.ThreeVarEquation
+
+@{
+    ViewBag.Title = "Index";
+    var myEquation = new TVM.Models.ThreeVarEquation();
+    var index = ViewBag.index ?? 0;
+}
+
+
+<div style="padding: 30px"></div>
+
+<div class="jumbotron">
+
+    <h2>@myEquation.equationName[index]</h2>
+    <br />
+    <h4>@myEquation.description[index]</h4>
+    <br />
+    <div class="form-horizontal" role="form">
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="text-center">
+                    <td>
+                        <h4>
+                            @myEquation.firstVarName[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.firstEquationOperator[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.secondVarName[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.secondEquationOperator[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.thirdVarName[index]
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>=</h4>
+                    </td>
+                    <td>
+                        <h4>Result</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control " id="firstVar" type="number" />
+                    </td>
+                    <td>
+                        <p id="Oper">@myEquation.firstEquationOperator[index]</p>
+                    </td>
+                    <td>
+                        <input class="form-control" id="secondVar" type="number" />
+                    </td>
+                    <td>
+                        <p id="Oper2">@myEquation.secondEquationOperator[index]</p>
+                    </td>
+                    <td>
+                        <input class="form-control" id="thirdVar" type="number" />
+                    </td>
+                    <td>
+                        <p>=</p>
+                    </td>
+                    <td>
+                        <p id="Result"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button name="Process" onclick="processEquation()" type="button" class="btn btn-default btn-lg btn-block">Calculate @myEquation.equationName[index]</button>
+</div>
+<div hidden id="returnType">@myEquation.resultType[index]</div>
+
+<script>
+    function processEquation() {
+        var firstVar = document.getElementById("firstVar").value * 1;
+        var secondVar = document.getElementById("secondVar").value * 1;
+        var thirdVar = document.getElementById("thirdVar").value * 1;
+        var tempReturn = 0;
+        var returnType = document.getElementById("returnType").innerText;
+        var returnAddOn = "";
+        var normalize = 1;
+        if (returnType == "Percent") {
+            returnAddOn = " Percent";
+            normalize = 100;
+        }
+        else if (returnType == "Ratio") {
+            returnAddOn = " Times";
+        }
+        else if (returnType == "Dollar") {
+            returnAddOn = " Dollars";
+        }
+        else if (returnType == "Days") {
+            returnAddOn = " Days";
+        }
+
+        var returnValue = 0;
+        if (document.getElementById("Oper").innerText == "-") {
+            returnValue = (firstVar - secondVar);
+            //returnValue = returnValue.toFixed(2);
+            //document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else if (document.getElementById("Oper").innerText == "/") {
+            returnValue = (firstVar / secondVar);
+            //returnValue = returnValue.toFixed(2);
+            //document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else if (document.getElementById("Oper").innerText == "*") {
+            returnValue = (firstVar * secondVar);
+            //returnValue = returnValue.toFixed(2);
+            //document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else if (document.getElementById("Oper").innerText == "+") {
+            returnValue = (firstVar + secondVar);
+            //returnValue = returnValue.toFixed(2);
+            //document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else {
+            document.getElementById("Result").innerText = "no operator found";
+        }
+
+        if (document.getElementById("Oper2").innerText == "-") {
+            returnValue = (returnValue - secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else if (document.getElementById("Oper2").innerText == "/") {
+            returnValue = (returnValue / secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else if (document.getElementById("Oper2").innerText == "*") {
+            returnValue = (returnValue * secondVar) * normalize;
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else if (document.getElementById("Oper2").innerText == "+") {
+            returnValue = (returnValue + secondVar);
+            returnValue = returnValue.toFixed(2);
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
+        }
+        else {
+            document.getElementById("Result").innerText = "no operator found";
+        }
+
+
+    }
+</script>
+
+
+
+
+
+
+
