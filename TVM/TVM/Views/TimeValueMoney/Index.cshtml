@@ -87,11 +87,46 @@
         }
         else if (document.getElementById("RATE").value == "")
         {
-            //normalize = 100;
-            returnValue = Math.pow((FV / PV), (1 / NPER)) - 1;
+            var tempRate = 0;
 
-            returnValue = returnValue.toFixed(4);
-            document.getElementById("RATE").value = returnValue;
+            for (var a = 0; a < 10;)
+            {
+                var tempReturnValue = -PV;
+                tempReturnValue = (tempReturnValue) * Math.pow((1 + a), NPER);
+                for (var i = NPER - 1; i >= 0; i--) {
+                    tempReturnValue += -PMT * Math.pow((1 + a), i);
+                }
+                if (tempReturnValue < FV) {
+                    tempRate = a;
+                }
+                else { break; }
+                a+=.1
+            }
+            var tempRate2 = 0;
+            for (var a = tempRate; a < tempRate + .1;)
+            {
+                var tempReturnValue = -PV;
+                tempReturnValue = (tempReturnValue) * Math.pow((1 + a), NPER);
+                for (var i = NPER - 1; i >= 0; i--) {
+                    tempReturnValue += -PMT * Math.pow((1 + a), i);
+                }
+                if (tempReturnValue < FV) {
+                    tempRate2 = a;
+                }
+                else { break; }
+                a+=.01
+            }
+
+            document.getElementById("Rate").value = tempRate2;
+
+
+
+
+           //simple code here
+            //returnValue = Math.pow((FV / PV), (1 / NPER)) - 1;
+
+            //returnValue = returnValue.toFixed(4);
+            //document.getElementById("RATE").value = returnValue;
             //do RATE equation
         }
         else if (document.getElementById("PV").value == "")
