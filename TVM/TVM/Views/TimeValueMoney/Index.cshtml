@@ -101,6 +101,14 @@
         else if (document.getElementById("FV").value == "")
         {
             //do FV equation
+            var tempReturn = 0;
+            returnValue = PV;
+            for (var a = NPER; a >= 0; a--)
+            {
+                returnValue = returnValue * Math.pow((1 + RATE), a);
+                tempReturn += returnValue;
+            }
+            document.getElementById("FV").value = tempReturn;
         }
 
 
