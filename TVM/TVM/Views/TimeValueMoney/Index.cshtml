@@ -1,0 +1,117 @@
+﻿@model TVM.Models.TimeValueMoney
+
+@{
+    ViewBag.Title = "Index";
+    var myEquation = new TVM.Models.TimeValueMoney();
+}
+
+<div style="padding: 30px"></div>
+
+<div class="jumbotron">
+
+    <h2>@myEquation.name</h2>
+    <br />
+    <h4>@myEquation.description</h4>
+    <br />
+    <div class="form-horizontal" role="form">
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="text-center">
+                    <td>
+                        <h4>
+                            @myEquation.firstVariableName
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.secondVariableName
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.thirdVariableName
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.fourthVariableName
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @myEquation.fifthVariableName
+                        </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control " id="NPER" type="number" />
+                    </td>
+                    <td>
+                        <input class="form-control " id="RATE" type="number" />
+                    </td>
+                    <td>
+                        <input class="form-control" id="PV" type="number" />
+                    </td>
+                    <td>
+                        <input class="form-control" id="PMT" type="number" />
+                    </td>
+                    <td>
+                        <input class="form-control" id="FV" type="number" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button name="Process" onclick="processEquation()" type="button" class="btn btn-default btn-lg btn-block">Calculate Missing Value</button>
+</div>
+
+<script>
+    function processEquation() {
+        var NPER = document.getElementById("NPER").value * 1;
+        var RATE = document.getElementById("RATE").value * 1;
+        var PV = document.getElementById("PV").value * 1;
+        var PMT = document.getElementById("PMT").value * 1;
+        var FV = document.getElementById("FV").value * 1;
+        var returnType = null;
+        var returnAddOn = "";
+        var normalize = 1;     
+
+        var returnValue = 0;
+       
+
+
+        if (document.getElementById("NPER").value == "")
+        {
+            //do NPER equation
+        }
+        else if (document.getElementById("RATE").value == "")
+        {
+            normalize = 100;
+            //do RATE equation
+        }
+        else if (document.getElementById("PV").value == "")
+        {
+            //do PV equation
+        }
+        else if (document.getElementById("PMT").value == "")
+        {
+            //do PMT equation
+        }
+        else if (document.getElementById("FV").value == "")
+        {
+            //do FV equation
+        }
+
+
+    }
+</script>
+
+
+
+
+
+
+
+
+

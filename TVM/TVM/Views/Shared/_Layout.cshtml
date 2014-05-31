@@ -9,6 +9,7 @@
 
     @{var myEquation = new TVM.Models.TwoVarEquation();
       var myEquation2 = new TVM.Models.ThreeVarEquation();
+      var myEquation3 = new TVM.Models.TimeValueMoney();
      }
 </head>
 <body>
@@ -45,6 +46,7 @@
                             <br />
                             a++;
                         }
+                        @Html.ActionLink("TimeValueMoney", "Index", "TimeValueMoney")
                         a = 0;
                         foreach (var equation in myEquation2.equationName)
                         { 
