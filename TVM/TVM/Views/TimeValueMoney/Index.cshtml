@@ -87,6 +87,7 @@
                 for (var i = a - 1; i >= 0; i--) {
                     tempReturnValue += -PMT * Math.pow((1 + RATE), i);
                 }
+                
                 if (tempReturnValue < FV) {
                     tempNPER = a;
                 }
@@ -94,12 +95,39 @@
                 a += 1;
 
             }
+            //alert(tempNPER);
+
+            var tempNPER2 = 0;
+            tempNPER = tempNPER * 1000;
             alert(tempNPER);
+            var tempRATE = RATE / 1000;
+            var tempPMT = PMT / 1000;
+            for (var a = tempNPER; a < tempNPER + 1000;) {
+                var tempReturnValue = -PV;
+                tempReturnValue = (tempReturnValue) * Math.pow((1 + tempRATE), a);
+                //alert(tempReturnValue);
+                //alert(a);
+                for (var i = a-1; i >= 0; i--) {
+                    tempReturnValue += -tempPMT * Math.pow((1 + tempRATE), i);
+                   // alert(i);
+                }
+
+                if (tempReturnValue < FV) {
+                    tempNPER2 = a;
+                }
+
+                a += 1;
+
+            }
+
+            
+            alert(tempNPER2);
+            tempNPER2 = tempNPER2 /1000;
 
 
 
 
-            NPER = findNPER;
+            NPER = tempNPER2;
             NPER = NPER.toFixed(2);
 
             document.getElementById("NPER").value = NPER;
