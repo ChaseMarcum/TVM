@@ -83,7 +83,26 @@
 
         if (document.getElementById("NPER").value == "")
         {
-            var findNPER = (-Math.log(1 - ((PV / PMT) * RATE))) / Math.log(1 + RATE);
+            var tempNPER = 0;
+            for (var a = 0; a < 1000;)
+            {
+                var tempReturnValue = -PV;
+                tempReturnValue = (tempReturnValue) * Math.pow((1 + RATE), a);
+                for (var i = a - 1; i >= 0; i--) {
+                    tempReturnValue += -PMT * Math.pow((1 + RATE), i);
+                }
+                if (tempReturnValue < FV) {
+                    tempNPER = a;
+                }
+                
+                a += 1;
+
+            }
+            alert(tempNPER);
+
+
+
+
             NPER = findNPER;
             NPER = NPER.toFixed(2);
 
@@ -106,7 +125,7 @@
                 if (tempReturnValue < FV) {
                     tempRate = a;
                 }
-                a+=.1
+                a += .1;
             }
             var tempRate2 = 0;
             
@@ -121,7 +140,7 @@
                     tempRate2 = a;
                 }
                 
-                a+=.01
+                a += .01;
             }
             var tempRate3 = 0;
 
@@ -135,7 +154,7 @@
                     tempRate3 = a;
                 }
 
-                a += .001
+                a += .001;
             }
            
             tempRate3 = tempRate3.toFixed(2);
