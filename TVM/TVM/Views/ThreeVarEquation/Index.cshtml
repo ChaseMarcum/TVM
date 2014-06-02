@@ -10,7 +10,7 @@
 
 <div class="jumbotron">
 
-    <h2>@myEquation.equationName[index]</h2>
+    <h2 id="name">@myEquation.equationName[index]</h2>
     <br />
     <h4>@myEquation.description[index]</h4>
     <br />
@@ -101,6 +101,16 @@
         }
         else if (returnType == "Days") {
             returnAddOn = " Days";
+        }
+
+        if(document.getElementById("name").innerText == "Return on Equity Two")
+        {
+            returnValue = (firstVar)/(secondVar-thirdVar);
+            returnAddOn = " Percent";
+            normalize = 100;
+            returnValue *= normalize;
+            document.getElementById("Result").innerText = returnValue + returnAddOn;
+            return;
         }
 
         var returnValue = 0;
