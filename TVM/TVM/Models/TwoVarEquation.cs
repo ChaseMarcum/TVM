@@ -62,10 +62,10 @@ namespace TVM.Models
                                  3};
 
         #region
-        public string[] description = {"Average Tax Rate Description",
-                                        "Book Value of Assets Description",
-                                        "Book Value Per Share Description",
-                                        "Cash Flow from Assets Description",
+        public string[] description = {"The Average Tax Rate is the total taxes paid divided by total taxable income.",
+                                        "To calculate the Book Value of Assets take the total of the Book Value of Current Assets plus the Market Value of Fixed Assets.",
+                                        "To calculate the Book Value of Share take the Total Equity and divide it by the Shares Outstanding.",
+                                        "The Cash Flow from Assets is calculated by taking the total of Cash Flow to creditors and the Cash Flow to Stockholders, this consists of the Operating Cash Flow, Capital Spending, and changes in Net Working Capital.",
                                         "Cash Flow to Creditors Description",
                                         "Cash Flow to Stockholders Description",
                                         "Change in Net Working Capital Description",
