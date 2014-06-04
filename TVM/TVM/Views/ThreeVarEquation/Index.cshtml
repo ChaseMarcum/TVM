@@ -8,12 +8,23 @@
 
 <div style="padding: 30px"></div>
 
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h1>@myEquation.equationName[index]</h1>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+<br />
+<div class="row" style="padding-bottom: 30px">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h3 style="color:white">@myEquation.description[index]</h3>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+    <br />
+</div>
 <div class="jumbotron">
-
-    <h2 id="name">@myEquation.equationName[index]</h2>
-    <br />
-    <h4>@myEquation.description[index]</h4>
-    <br />
     <div class="form-horizontal" role="form">
         <div class="table-responsive">
             <table class="table">
@@ -103,9 +114,8 @@
             returnAddOn = " Days";
         }
 
-        if(document.getElementById("name").innerText == "Return on Equity Two")
-        {
-            returnValue = (firstVar)/(secondVar-thirdVar);
+        if (document.getElementById("name").innerText == "Return on Equity Two") {
+            returnValue = (firstVar) / (secondVar - thirdVar);
             returnAddOn = " Percent";
             normalize = 100;
             returnValue *= normalize;

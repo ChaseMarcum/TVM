@@ -26,7 +26,8 @@ namespace TVM
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-slate.css",
                       "~/Content/site.css",
-                      "~/Content/simple-sidebar.css"));
+                      "~/Content/simple-sidebar.css",
+                      "~/Content/sidebar.css"));
         }
     }
 }

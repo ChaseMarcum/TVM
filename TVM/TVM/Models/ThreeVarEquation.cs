@@ -27,8 +27,8 @@ namespace TVM.Models
                                  3};
 
         #region
-        public string[] description = {"This is the description for the Cash Flow from Assets Equation",
-                                       "This is the description for the Net Capital Spending Equation",
+        public string[] description = {"To calculate the Cash Flow from Assets you will need to take the total of the cash flow to creditors and the cash flow to stockholders, that is consisting of the operating cash flow, the capital spending, and the changes in net working capital.",
+                                       "To calculate the Net Capital Spending you will need to take the Ending Net Fixed Asset and subtract it by the Beginning Net Fixed Assets and the Depreciation",
                                        "This is the description for the Operating Cash Flow Equation",
                                        "This is the description for the Quick Ratio Equation",
                                        "This is the description for the Return on Equity Equation",

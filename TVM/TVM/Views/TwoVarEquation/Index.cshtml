@@ -8,12 +8,24 @@
 
 <div style="padding: 30px"></div>
 
-<div class="jumbotron">
 
-    <h2>@myEquation.equationName[index]</h2>
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h1>@myEquation.equationName[index]</h1>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+<br />
+<div class="row" style="padding-bottom: 30px">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h3 style="color:white">@myEquation.description[index]</h3>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
     <br />
-    <h4>@myEquation.description[index]</h4>
-    <br />
+</div>
+<div class="jumbotron">
     <div class="form-horizontal" role="form">
         <div class="table-responsive">
             <table class="table">
@@ -42,7 +54,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="form-control "id="firstVar" type="number" />
+                        <input class="form-control " id="firstVar" type="number" />
                     </td>
                     <td>
                         <p id="Oper">@myEquation.equationOperator[index]</p>
@@ -71,24 +83,20 @@
         var returnType = document.getElementById("returnType").innerText;
         var returnAddOn = "";
         var normalize = 1;
-        if (returnType == "Percent")
-        {
+        if (returnType == "Percent") {
             returnAddOn = " Percent";
             normalize = 100;
         }
-        else if (returnType == "Ratio")
-        {
+        else if (returnType == "Ratio") {
             returnAddOn = " Times";
         }
-        else if (returnType == "Dollar")
-        {
+        else if (returnType == "Dollar") {
             returnAddOn = " Dollars";
         }
-        else if (returnType == "Days")
-        {
+        else if (returnType == "Days") {
             returnAddOn = " Days";
         }
-        
+
         var returnValue = 0;
         if (document.getElementById("Oper").innerText == "-") {
             returnValue = (firstVar - secondVar) * normalize;
