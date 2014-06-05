@@ -1,0 +1,92 @@
+﻿@model TVM.Models.TimeValueMoney
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="padding: 30px"></div>
+
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h1>Balance Sheet</h1>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+<br />
+<div class="row" style="padding-bottom: 30px">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h3 style="color:white"></h3>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+    <br />
+</div>
+<div class="jumbotron">
+    <div class="form-horizontal" role="form">
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="text-center">
+                <tr>
+                    <td>Current Assets</td>
+                    <td>
+                        <input class="form-control " id="curAssets" type="number" />
+                    </td>
+                    <td>Current Liabilities</td>
+                    <td>
+                        <input class="form-control " id="curLiab" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Net Fixed Assets</td>
+                    <td>
+                        <input class="form-control " id="fixedAssets" type="number" />
+                    </td>
+                    <td>Long-term Debt</td>
+                    <td>
+                        <input class="form-control " id="ltDebt" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Owner's Equity</td>
+                    <td>
+                        <input class="form-control " id="equity" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Total Assets</td>
+                    <td id="assets"></td>
+                    <td>Total Liabilities & Equity</td>
+                    <td id="liab"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button name="Process" onclick="processEquation()" type="button" class="btn btn-default btn-lg btn-block">Calculate Balance Sheet</button>
+</div>
+
+<script>
+    function processEquation() {
+        var curAssets = document.getElementById("curAssets").value * 1;
+        var curLiab = document.getElementById("curLiab").value * 1;
+        var fixedAssets = document.getElementById("fixedAssets").value * 1;
+        var ltDebt = document.getElementById("ltDebt").value * 1;
+        var equity = document.getElementById("equity").value * 1;
+        var assets = document.getElementById("assets").value * 1;
+        var liab = document.getElementById("liab").value * 1;
+
+        assets = curAssets + fixedAssets
+        liab = curLiab + ltDebt + equity;
+
+        document.getElementById("assets").innerText = "$" + assets;
+        document.getElementById("liab").innerText = "$" + liab;
+    };
+</script>

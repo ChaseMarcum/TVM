@@ -148,7 +148,38 @@
                                 <br />
                             </div>
                         </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                        Simple Balance Sheet
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @Html.ActionLink("Simple Balance Sheet", "Index", "BalanceSheet")
+                                <br />
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                        Simple Income Sheet
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @Html.ActionLink("Simple Income Statement", "Index", "IncomeStatement")
+                                <br />
+                            </div>
+                        </div>
                     </div>
+                    <br />
                     <p style="padding-bottom: 100px"></p>
                 </li>
             </ul>

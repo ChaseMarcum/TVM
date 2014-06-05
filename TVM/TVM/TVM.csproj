@@ -178,7 +178,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BalanceSheeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomeStatementController.cs" />
     <Compile Include="Controllers\ThreeVarEquationController.cs" />
     <Compile Include="Controllers\TimeValueMoneyController.cs" />
     <Compile Include="Controllers\TwoVarEquationController.cs" />
@@ -323,6 +325,8 @@
     <Content Include="Views\TwoVarEquation\Index.cshtml" />
     <Content Include="Views\ThreeVarEquation\Index.cshtml" />
     <Content Include="Views\TimeValueMoney\Index.cshtml" />
+    <Content Include="Views\BalanceSheet\Index.cshtml" />
+    <Content Include="Views\IncomeStatement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

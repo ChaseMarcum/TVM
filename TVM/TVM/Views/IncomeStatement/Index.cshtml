@@ -1,0 +1,98 @@
+﻿@model TVM.Models.TimeValueMoney
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="padding: 30px"></div>
+
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h1>Income Statement</h1>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+<br />
+<div class="row" style="padding-bottom: 30px">
+    <div class="col-lg-2 col-md-2"></div>
+    <div>
+        <h3 style="color:white"></h3>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+    <br />
+</div>
+<div class="jumbotron">
+    <div class="form-horizontal" role="form">
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="text-center">
+                <tr>
+                    <td>Sales</td>
+                    <td>
+                        <input class="form-control " id="sales" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Costs</td>
+                    <td>
+                        <input class="form-control " id="cost" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Depreciation</td>
+                    <td>
+                        <input class="form-control " id="dep" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>EBIT</td>
+                    <td id="ebit"></td>
+                </tr>
+                <tr>
+                    <td>Interest</td>
+                    <td>
+                        <input class="form-control " id="interest" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Taxable Income</td>
+                    <td id="taxIncome"></td>
+                </tr>
+                <tr>
+                    <td>Taxes</td>
+                    <td>
+                        <input class="form-control " id="taxes" type="number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Net Income</td>
+                    <td id="netIncome"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button name="Process" onclick="processEquation()" type="button" class="btn btn-default btn-lg btn-block">Calculate Income Statement</button>
+</div>
+
+<script>
+    function processEquation() {
+        var sales = document.getElementById("sales").value * 1;
+        var cost = document.getElementById("cost").value * 1;
+        var dep = document.getElementById("dep").value * 1;
+        var ebit = document.getElementById("ebit").value * 1;
+        var taxIncome = document.getElementById("taxIncome").value * 1;
+        var taxes = document.getElementById("taxes").value * 1;
+        var netIncome = document.getElementById("netIncome").value * 1;
+        var interest = document.getElementById("interest").value * 1;
+
+        ebit = sales - cost - dep;
+        taxIncome = ebit - interest;
+        netIncome = taxIncome - taxes;
+
+        document.getElementById("ebit").innerText = "$" + ebit;
+        document.getElementById("taxIncome").innerText = "$" + taxIncome;
+        document.getElementById("netIncome").innerText = "$" + netIncome;
+
+    };
+</script>
