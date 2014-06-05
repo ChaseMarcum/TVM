@@ -178,12 +178,28 @@
 
             }
 
+            var tempNPER4 = 0;
+
+            for (var a = tempNPER3; a < tempNPER3 + .01;) {
+                var tempReturnValue = -PV;
+                tempReturnValue = ((PMT * (1 + RATE)) / RATE) - ((Math.pow((1 + RATE), a)) * (PV + ((PMT * (1 + RATE)) / RATE)));
+                // alert(tempReturnValue);
+                // alert(FV);
+
+                if (tempReturnValue <= FV) {
+                    tempNPER4 = a;
+                }
+
+                a += .001;
+
+            }
+
 
 
 
             //alert(tempNPER3);
 
-            NPER = tempNPER3;
+            NPER = tempNPER4;
             NPER = NPER.toFixed(2);
 
             document.getElementById("NPER").value = NPER;
