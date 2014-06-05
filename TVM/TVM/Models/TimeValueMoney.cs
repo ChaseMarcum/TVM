@@ -14,7 +14,7 @@ namespace TVM.Models
 
 
         public string name = "Time Value Money";
-        public string description = "The description for the Time Value Money equation.";
+        public string description = "Time Value Money is the financial theory that the value of money you have now is greater than a reliable promise to receive the same amount of money at a future date.  Time Value Money is based on interest and can be used to compare investments, such as loans, bonds, mortgages, leases and savings.";
         public string firstVariableName = "NPER";
         public string secondVariableName = "Rate";
         public string thirdVariableName = "Present Value";
