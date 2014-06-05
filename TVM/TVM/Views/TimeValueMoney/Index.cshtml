@@ -276,8 +276,8 @@
             //do PV equation
         }
         else if (document.getElementById("PMT").value == "") {
-            returnValue = ((((PV * Math.pow((RATE + 1), NPER)) + FV) * RATE) / (1 - (Math.pow((1 + RATE), NPER))));
-
+            //returnValue = ((((PV * Math.pow((RATE + 1), NPER)) + FV) * RATE) / (1 - (Math.pow((1 + RATE), NPER))));
+            returnValue = (PV+((PV+FV)/(Math.pow((1+RATE),NPER)-1)))*((-1*RATE)/(1+RATE))
             returnValue = returnValue.toFixed(2);
             document.getElementById("PMT").value = returnValue;
             //do PMT equation
